@@ -12,4 +12,4 @@ script:
  - pybot -P src:tests tests/test_*
 
 after_script:
-  - hiptest-publisher -c robotframework.conf --push=TestCoffeeMachineHiptestPublisherSample.tap --test-run-id=1360
+  - hiptest-publisher -c robotframework.conf --push=output.xml --test-run-id=1360

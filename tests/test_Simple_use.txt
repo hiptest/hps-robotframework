@@ -1,0 +1,24 @@
+*** Settings ***
+Documentation
+...  Well, sometimes, you just get a coffee.
+
+Resource          keywords.txt
+
+
+Test Template     simple_use
+
+*** Test Cases ***	lang	ready_message
+English	en	Ready
+French	fr	Pret
+
+
+*** Keywords ***
+
+simple_use
+	[Arguments]	${lang}	${ready_message}
+	# Given I start the coffee machine "<lang>"
+	i_start_the_coffee_machine	${lang}
+	# When I take a coffee
+	i_take_a_coffee
+	# Then coffee should be served
+	coffee_should_be_served

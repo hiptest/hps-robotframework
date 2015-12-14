@@ -1,0 +1,22 @@
+*** Settings ***
+Documentation
+...  Well, sometimes, you just get a coffee.
+
+Resource          keywords.txt
+
+
+Test Template     messages_are_based_on_language
+
+*** Test Cases ***	lang	ready_message
+English	en	Ready
+French	fr	Pret
+
+
+*** Keywords ***
+
+messages_are_based_on_language
+	[Arguments]	${lang}	${ready_message}
+	# When I start the coffee machine "<lang>"
+	i_start_the_coffee_machine	${lang}
+	# Then message "<ready_message>" should be displayed
+	message_message_should_be_displayed	${ready_message}

@@ -1,0 +1,16 @@
+*** Settings ***
+Documentation
+...  Tags: plop
+
+Resource          keywords.txt
+
+
+*** Test Cases ***
+
+no_messages_are_displayed_when_machine_is_shut_down
+	# Given the coffee machine is started
+	the_coffee_machine_is_started
+	# When I shutdown the coffee machine
+	i_shutdown_the_coffee_machine
+	# Then message "" should be displayed
+	message_message_should_be_displayed	

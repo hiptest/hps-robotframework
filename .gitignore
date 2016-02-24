@@ -53,5 +53,9 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# Robot framework output
+log.html
+output.xml
+report.html
 # PyBuilder
 target/

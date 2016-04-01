@@ -1,0 +1,32 @@
+*** Settings ***
+Documentation
+...  As a coffee lover
+...  I can get coffee from the machine
+...  So I can enjoy the rest of the day
+
+Resource          keywords.txt
+
+
+*** Test Cases ***
+
+Whatever
+  [Template]  Messages are based on language
+  en    Ready
+  fr    Pret
+
+Simple use
+  the_coffee_machine_is_started
+  i_take_a_coffee
+  coffee_should_be_served
+
+No messages are displayed when machine is shut down
+  the_coffee_machine_is_started
+  i_shutdown_the_coffee_machine
+  message_message_should_be_displayed
+
+*** Keywords ***
+
+Messages are based on language
+    [Arguments]   ${lang}   ${ready_message}
+    i_start_the_coffee_machine    ${lang}
+    message_message_should_be_displayed   ${ready_message}

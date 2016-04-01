@@ -3,6 +3,7 @@ from coffee_machine import CoffeeMachine
 class CoffeeMachineLibrary(object):
     def __init__(self):
         self.sut = CoffeeMachine()
+        self.handled = []
 
     def i_start_the_coffee_machine(self, lang = 'en'):
         self.sut.start(lang)
@@ -39,3 +40,21 @@ class CoffeeMachineLibrary(object):
         while (coffee_number > 0):
             self.i_take_a_coffee()
             coffee_number = coffee_number - 1
+
+            if 'water' in self.handled:
+                self.i_fill_the_water_tank()
+
+            if 'beans' in self.handled:
+                self.i_fill_the_beans_tank()
+
+            if 'grounds' in self.handled:
+                self.i_empty_the_coffee_grounds()
+
+    def i_handle_water_tank(self):
+        self.handled.append('water')
+
+    def i_handle_beans(self):
+        self.handled.append('beans')
+
+    def i_handle_coffee_grounds(self):
+        self.handled.append('grounds')

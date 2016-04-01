@@ -10,9 +10,7 @@ Test Setup	Run Keywords	the_coffee_machine_is_started
 ...         AND      	i_handle_everything_except_the_beans
 
 
-
 *** Test Cases ***
-
 
 
 Message "Fill beans" is displayed after 38 coffees are taken
@@ -30,4 +28,5 @@ After adding beans, the message "Fill beans" disappears
 	i_take_coffee_number_coffees	40
 	i_fill_the_beans_tank
 	message_message_should_be_displayed	Ready
+
 

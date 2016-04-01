@@ -10,9 +10,7 @@ Test Setup	Run Keywords	the_coffee_machine_is_started
 ...         AND      	i_handle_everything_except_the_grounds
 
 
-
 *** Test Cases ***
-
 
 
 Message "Empty grounds" is displayed after 30 coffees are taken
@@ -23,4 +21,5 @@ When the grounds are emptied, message is removed
 	i_take_coffee_number_coffees	30
 	i_empty_the_coffee_grounds
 	message_message_should_be_displayed	Ready
+
 

@@ -7,9 +7,7 @@ Documentation
 Resource          keywords.txt
 
 
-
 *** Test Cases ***
-
 
 
 Full grounds does not block coffee
@@ -18,4 +16,5 @@ Full grounds does not block coffee
 	i_take_coffee_number_coffees	50
 	message_message_should_be_displayed	Empty grounds
 	coffee_should_be_served
+
 

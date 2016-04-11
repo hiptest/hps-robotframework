@@ -3,12 +3,9 @@ Documentation
 ...  As a lazy coffee user
 ...  I can ignore the message displayed by the machine
 ...  So I can have coffee and let other people have to clean after me
-
 Resource          keywords.txt
 
-
 *** Test Cases ***
-
 
 Full grounds does not block coffee
 	the_coffee_machine_is_started
@@ -16,5 +13,3 @@ Full grounds does not block coffee
 	i_take_coffee_number_coffees	50
 	message_message_should_be_displayed	Empty grounds
 	coffee_should_be_served
-
-

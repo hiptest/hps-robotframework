@@ -9,7 +9,7 @@ before_install:
   - pip install robotframework
 
 script:
- - pybot -P src:tests tests/test_*
+ - pybot -P src:tests tests/**/test_*
 
 after_script:
   - hiptest-publisher -c robotframework.conf --push=output.xml --test-run-id=1360

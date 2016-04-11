@@ -12,10 +12,15 @@ Simple use
 	i_take_a_coffee
 	coffee_should_be_served
 
-Messages are based on language
+Messages are based on language English
 	[Template]	Messages are based on language keyword
-	English	en	Ready
-	French	fr	Pret
+	en	Ready
+
+Messages are based on language French
+	[Template]	Messages are based on language keyword
+	fr	Pret
+
+
 
 No messages are displayed when machine is shut down
 	the_coffee_machine_is_started
@@ -25,7 +30,7 @@ No messages are displayed when machine is shut down
 *** Keywords ***
 
 Messages are based on language keyword
-	[Arguments]	${__test_name}	${lang}	${ready_message}
+	[Arguments]	${lang}	${ready_message}
 	i_start_the_coffee_machine	${lang}
 	message_message_should_be_displayed	${ready_message}
 

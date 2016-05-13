@@ -5,11 +5,11 @@ before_install:
   - rvm install 2.2
   - rvm use 2.2
   - gem install hiptest-publisher
-  - hiptest-publisher -c robotframework.conf --only=tests --test-run-id=1360
+  - hiptest-publisher -c robotframework.conf --token=$SECRET_TOKEN --only=tests --test-run-id=1360
   - pip install robotframework
 
 script:
  - pybot -P src:tests tests/**/test_*
 
 after_script:
-  - hiptest-publisher -c robotframework.conf --push=output.xml --test-run-id=1360
+  - hiptest-publisher -c robotframework.conf --token=$SECRET_TOKEN --push=output.xml --test-run-id=1360

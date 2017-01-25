@@ -1,0 +1,31 @@
+*** Settings ***
+Documentation
+...  As a polyglot coffee lover
+...  I can select the language on the coffee machine
+...  So I can practice my use of greetings in several languages
+Resource          keywords.txt
+
+*** Test Cases ***
+
+No messages are displayed when machine is shut down
+	Given the_coffee_machine_is_started
+	When i_shutdown_the_coffee_machine
+	Then message_message_should_be_displayed	
+
+Messages are based on language English
+	[Template]	Messages are based on language keyword
+	en	Ready
+
+Messages are based on language French
+	[Template]	Messages are based on language keyword
+	fr	Pret
+
+
+
+*** Keywords ***
+
+Messages are based on language keyword
+	[Arguments]	${language}	${ready_message}
+	When i_start_the_coffee_machine_using_language_lang	${language}
+	Then message_message_should_be_displayed	${ready_message}
+

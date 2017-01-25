@@ -5,7 +5,7 @@ Library           CoffeeMachineLibrary
 *** Keywords ***
 
 the_coffee_machine_is_started
-  i_start_the_coffee_machine
+  i_start_the_coffee_machine_using_language_lang
 
 i_handle_everything_except_the_water_tank
   i_handle_coffee_grounds

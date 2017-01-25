@@ -5,7 +5,7 @@ class CoffeeMachineLibrary(object):
         self.sut = CoffeeMachine()
         self.handled = []
 
-    def i_start_the_coffee_machine(self, lang = 'en'):
+    def i_start_the_coffee_machine_using_language_lang(self, lang = 'en'):
         self.sut.start(lang)
 
     def i_shutdown_the_coffee_machine(self):
@@ -58,3 +58,22 @@ class CoffeeMachineLibrary(object):
 
     def i_handle_coffee_grounds(self):
         self.handled.append('grounds')
+
+    def displayed_message_is(self, free_text = ""):
+        displayed = [line.strip() for line in self.sut.message.split("\n")]
+        expected = [line.strip() for line in free_text.split("\n")]
+
+        if displayed != expected:
+            raise AssertionError('%s != %s' % (expected, displayed))
+
+    def i_switch_to_settings_mode(self):
+        self.sut.show_settings()
+
+    def settings_should_be(self, *args, **kwargs):
+        datatable = ''.join(args)
+
+        expected_settings = [[cell.strip() for cell in line.split('|')] for line in datatable.split("\n")]
+        settings = [['', k, str(self.sut.get_settings()[k]), ''] for k in self.sut.get_settings().keys()]
+
+        if expected_settings != settings:
+            raise AssertionError('%s != %s' % (expected_settings, settings))

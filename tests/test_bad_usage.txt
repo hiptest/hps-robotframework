@@ -8,8 +8,8 @@ Resource          keywords.txt
 *** Test Cases ***
 
 Full grounds does not block coffee
-	the_coffee_machine_is_started
-	i_handle_everything_except_the_grounds
-	i_take_coffee_number_coffees	50
-	message_message_should_be_displayed	Empty grounds
-	coffee_should_be_served
+	Given the_coffee_machine_is_started
+	And i_handle_everything_except_the_grounds
+	When i_take_coffee_number_coffees	50
+	Then message_message_should_be_displayed	Empty grounds
+	And coffee_should_be_served

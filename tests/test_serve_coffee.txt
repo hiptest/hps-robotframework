@@ -1,0 +1,13 @@
+*** Settings ***
+Documentation
+...  As a coffee lover
+...  I can get coffee from the machine
+...  So I can enjoy the rest of the day
+Resource          keywords.txt
+
+*** Test Cases ***
+
+Simple use
+	Given the_coffee_machine_is_started
+	When i_take_a_coffee
+	Then coffee_should_be_served

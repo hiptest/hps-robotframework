@@ -8,6 +8,11 @@ class CoffeeMachine:
         self.empty_grounds()
 
         self._last_coffee_success = False
+        self._display_settings = False
+
+        self._display_settings = False
+        self._water_hardness = 2
+        self._grinder = 'medium'
 
     def start(self, lang = 'en'):
         self.started = True
@@ -23,13 +28,15 @@ class CoffeeMachine:
                 'tank': 'Fill tank',
                 'beans': 'Fill beans',
                 'grounds': 'Empty grounds',
-                'ready': 'Ready'
+                'ready': 'Ready',
+                'settings': 'Settings:\n - 1: water hardness\n - 2: grinder'
             },
             'fr': {
                 'tank': 'Remplir reservoir',
                 'beans': 'Ajouter grains',
                 'grounds': 'Vider marc',
-                'ready': 'Pret'
+                'ready': 'Pret',
+                'settings': 'Configurer:\n - 1: durete de l eau\n - 2: mouture'
             }
         }
 
@@ -39,6 +46,9 @@ class CoffeeMachine:
     def message(self):
         if not self.started:
               return ""
+
+        if self._display_settings:
+            return self.messages['settings']
 
         if self.tank_content <= 10:
             return self.messages['tank']
@@ -74,3 +84,15 @@ class CoffeeMachine:
 
     def empty_grounds(self):
         self.grounds_content = 0
+
+    def show_settings(self):
+        self._display_settings = True
+
+    def hide_settings(self):
+        self._display_settings = False
+
+    def get_settings(self):
+        return {
+            'water hardness': self._water_hardness,
+            'grinder': self._grinder
+        }

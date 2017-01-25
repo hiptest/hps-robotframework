@@ -1,0 +1,27 @@
+*** Settings ***
+Documentation
+...  As a coffee lover
+...  I have to put fresh beans from time to time
+...  So I can have coffee when I need it
+Resource          keywords.txt
+
+Test Setup	Run Keywords	Given the_coffee_machine_is_started
+...         AND      	And i_handle_everything_except_the_beans
+
+*** Test Cases ***
+
+Message "Fill beans" is displayed after 38 coffees are taken
+	When i_take_coffee_number_coffees	38
+	Then message_message_should_be_displayed	Fill beans
+
+It is possible to take 40 coffees before there is really no more beans
+	Given i_take_coffee_number_coffees	40
+	Then coffee_should_be_served
+	When i_take_a_coffee
+	Then coffee_should_not_be_served
+	And message_message_should_be_displayed	Fill beans
+
+After adding beans the message "Fill beans" disappears
+	Given i_take_coffee_number_coffees	40
+	When i_fill_the_beans_tank
+	Then message_message_should_be_displayed	Ready

@@ -1,0 +1,18 @@
+*** Settings ***
+Documentation
+...  As this is a high quality product
+...  It is possible to configure it
+...  In order to get the best possible coffees
+Resource          keywords.txt
+
+*** Test Cases ***
+
+Display settings
+	Given the_coffee_machine_is_started
+	When i_switch_to_settings_mode
+	Then displayed_message_is	Settings:\n - 1: water hardness\n - 2: grinder
+
+Default settings
+	Given the_coffee_machine_is_started
+	When i_switch_to_settings_mode
+	Then settings_should_be	| water hardness | 2      |\n| grinder        | medium |

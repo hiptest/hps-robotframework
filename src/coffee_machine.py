@@ -10,7 +10,6 @@ class CoffeeMachine:
         self._last_coffee_success = False
         self._display_settings = False
 
-        self._display_settings = False
         self._water_hardness = 2
         self._grinder = 'medium'
 

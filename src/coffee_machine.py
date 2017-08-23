@@ -3,6 +3,7 @@ class CoffeeMachine:
         self.started = False
 
         # Yes it's a magic machine :)
+        self.descale()
         self.fill_tank()
         self.fill_beans()
         self.empty_grounds()
@@ -58,6 +59,9 @@ class CoffeeMachine:
         if self.grounds_content >= 30:
             return self.messages['grounds']
 
+        if self.is_descaling_needed():
+            return self.messages['descale']
+
         return self.messages['ready']
 
     @property
@@ -73,6 +77,7 @@ class CoffeeMachine:
             self.tank_content -= 1
             self.beans_content -= 1
             self.grounds_content += 1
+            self.countdown_to_descale -= 1
 
 
     def fill_tank(self):
@@ -95,3 +100,9 @@ class CoffeeMachine:
             'water hardness': self._water_hardness,
             'grinder': self._grinder
         }
+
+    def descale(self):
+        self.countdown_to_descale = 500
+
+    def is_descaling_needed(self):
+        return self.countdown_to_descale <= 0

@@ -31,7 +31,10 @@ Run tests
 
 To build the project and run the tests, use the following command:
 
-    pybot -P src:tests tests/**/test_*
+    pybot -P src:tests tests/*.txt
+Or 
+    robot -P src:tests tests/*.robot
+
 
 The SUT implementation can be seen in [``src/coffee_machine.py``](https://github.com/hiptest/hps-robotframework/blob/master/src/coffee_machine.py)
 

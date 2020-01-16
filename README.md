@@ -33,6 +33,7 @@ To build the project and run the tests, use the following command:
 
     pybot -P src:tests tests/*.txt
 Or 
+
     robot -P src:tests tests/*.robot
 
 

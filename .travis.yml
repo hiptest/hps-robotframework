@@ -2,8 +2,8 @@ language: python
 sudo: false
 
 before_install:
-  - rvm install 2.2
-  - rvm use 2.2
+  - rvm install 2.3
+  - rvm use 2.3
   - gem install hiptest-publisher
   - hiptest-publisher -c robotframework.conf --token=$SECRET_TOKEN --only=tests --test-run-id=1360
   - pip install robotframework
